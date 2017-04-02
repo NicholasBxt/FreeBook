@@ -1,4 +1,4 @@
-# 一些优秀的书籍分享给大家
+＃一些优秀的书籍分享给大家，后续会不定期更新，喜欢请点击Star
 * CFNetwork-编程指南
 * Effective Objective-C 2.0
 * HR招聘信息汇总
