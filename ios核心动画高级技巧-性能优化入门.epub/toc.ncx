@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="zh">
+  <head>
+    <meta content="9ff75253-2e9f-416c-aab7-c8044657d120" name="dtb:uid"/>
+    <meta content="3" name="dtb:depth"/>
+    <meta content="calibre (2.41.0)" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>ios核心动画高级技巧</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="u76e31d75-82ac-440a-9890-9c4e3b96075b" playOrder="1">
+      <navLabel>
+        <text>Introduction</text>
+      </navLabel>
+      <content src="index.html"/>
+    </navPoint>
+    <navPoint id="u351fb866-e77c-4a51-a200-44b4d4031aed" playOrder="2">
+      <navLabel>
+        <text>图层树</text>
+      </navLabel>
+      <content src="the-layer-tree.html"/>
+      <navPoint id="ua5210b6b-4714-4cdd-a3a8-3358fb15d2cf" playOrder="3">
+        <navLabel>
+          <text>图层与视图</text>
+        </navLabel>
+        <content src="layers-and-trees.html"/>
+      </navPoint>
+      <navPoint id="u9f28e631-b6ca-427f-b00e-a4eadaf893bf" playOrder="4">
+        <navLabel>
+          <text>图层的能力</text>
+        </navLabel>
+        <content src="layer-capabilities.html"/>
+      </navPoint>
+      <navPoint id="uc62a96aa-354c-40be-8b23-4bda61a2e418" playOrder="5">
+        <navLabel>
+          <text>使用图层</text>
+        </navLabel>
+        <content src="working-with-layers.html"/>
+      </navPoint>
+      <navPoint id="u05378114-5c8c-4738-b7a5-d1259e9e5881" playOrder="6">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary1.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uea7da230-7706-4306-aa63-5cecc9be64fd" playOrder="7">
+      <navLabel>
+        <text>寄宿图</text>
+      </navLabel>
+      <content src="the-Backing-Image.html"/>
+      <navPoint id="uafdda65e-6d58-40f9-8699-540c83054cad" playOrder="8">
+        <navLabel>
+          <text>contents属性</text>
+        </navLabel>
+        <content src="the-contents-image.html"/>
+      </navPoint>
+      <navPoint id="u6575cebf-89c6-4a4d-a9b3-8e3acdcac540" playOrder="9">
+        <navLabel>
+          <text>Custom Drawing</text>
+        </navLabel>
+        <content src="custom-drawing.html"/>
+      </navPoint>
+      <navPoint id="u2a469bcc-39d6-4bf5-be59-c7fe51e1d867" playOrder="10">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary2.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u44027447-1e49-4d8c-83d6-0804269a6583" playOrder="11">
+      <navLabel>
+        <text>图层几何学</text>
+      </navLabel>
+      <content src="layer-geometry.html"/>
+      <navPoint id="u9cfcaf8b-f75c-4b8a-8ac0-ccc5efd95461" playOrder="12">
+        <navLabel>
+          <text>布局</text>
+        </navLabel>
+        <content src="layout.html"/>
+      </navPoint>
+      <navPoint id="ud5bee488-7f7c-4694-bca5-4ef12ea249dc" playOrder="13">
+        <navLabel>
+          <text>锚点</text>
+        </navLabel>
+        <content src="anchor.html"/>
+      </navPoint>
+      <navPoint id="ud39e4416-0b60-405c-a520-08abf3392167" playOrder="14">
+        <navLabel>
+          <text>坐标系</text>
+        </navLabel>
+        <content src="coordinate-systens.html"/>
+      </navPoint>
+      <navPoint id="ue51744c8-2270-465c-8663-8bc907998d1b" playOrder="15">
+        <navLabel>
+          <text>Hit Testing</text>
+        </navLabel>
+        <content src="hit-testing.html"/>
+      </navPoint>
+      <navPoint id="u6e1fe980-ce34-4954-9358-440f4d966482" playOrder="16">
+        <navLabel>
+          <text>自动布局</text>
+        </navLabel>
+        <content src="automatic-layout.html"/>
+      </navPoint>
+      <navPoint id="u1a2780f5-fb96-4be9-9e71-31bb90bec33f" playOrder="17">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary3.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uaf2466da-d191-467a-a4c9-2e1edd870abf" playOrder="18">
+      <navLabel>
+        <text>视觉效果</text>
+      </navLabel>
+      <content src="visual-effcts.html"/>
+      <navPoint id="u5a7f5952-9ca7-487e-824c-965d194d6fe4" playOrder="19">
+        <navLabel>
+          <text>圆角</text>
+        </navLabel>
+        <content src="rounded-corners.html"/>
+      </navPoint>
+      <navPoint id="ub04f02e3-fc8c-4b13-b823-5a56d61b1621" playOrder="20">
+        <navLabel>
+          <text>图层边框</text>
+        </navLabel>
+        <content src="ayer-borders.html"/>
+      </navPoint>
+      <navPoint id="u20383b9e-a305-4999-99d9-2a3601ca0c55" playOrder="21">
+        <navLabel>
+          <text>阴影</text>
+        </navLabel>
+        <content src="drop-shadows.html"/>
+      </navPoint>
+      <navPoint id="udd6c64db-90b2-478f-bc60-753fe8c7d88e" playOrder="22">
+        <navLabel>
+          <text>图层蒙板</text>
+        </navLabel>
+        <content src="layer-masking.html"/>
+      </navPoint>
+      <navPoint id="u9f6c23ff-277c-48c2-8985-79eedcf11ab3" playOrder="23">
+        <navLabel>
+          <text>拉伸过滤</text>
+        </navLabel>
+        <content src="scaling-filters.html"/>
+      </navPoint>
+      <navPoint id="u3bb37e9f-e02e-41e1-827b-13d69c695a2a" playOrder="24">
+        <navLabel>
+          <text>组透明</text>
+        </navLabel>
+        <content src="group-opacity.html"/>
+      </navPoint>
+      <navPoint id="u990c10f7-f753-48b2-9d09-79faf58ce6d9" playOrder="25">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary4.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u7a89cfe8-4054-405f-bd70-ce7be27e9a14" playOrder="26">
+      <navLabel>
+        <text>变换</text>
+      </navLabel>
+      <content src="transforms.html"/>
+      <navPoint id="ubcfbf9f2-7cea-49ef-b76c-4fc1f99db0df" playOrder="27">
+        <navLabel>
+          <text>仿射变换</text>
+        </navLabel>
+        <content src="affine-fransforms.html"/>
+      </navPoint>
+      <navPoint id="u18fb0c32-1d50-4743-bf34-70cd535397b4" playOrder="28">
+        <navLabel>
+          <text>3D变换</text>
+        </navLabel>
+        <content src="3d-transform.html"/>
+      </navPoint>
+      <navPoint id="u1cce7bad-dbce-4716-81ce-1ab48b2df173" playOrder="29">
+        <navLabel>
+          <text>固体对象</text>
+        </navLabel>
+        <content src="solid-objects.html"/>
+      </navPoint>
+      <navPoint id="ubf6fd48e-3ff6-4b19-9d9f-b9e0d4a63b63" playOrder="30">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary5.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u4f77a8b4-b200-4301-bf08-947266285dae" playOrder="31">
+      <navLabel>
+        <text>专用图层</text>
+      </navLabel>
+      <content src="specialized-layers.html"/>
+      <navPoint id="u62472f88-bdb7-41d3-915d-41421ba4fafe" playOrder="32">
+        <navLabel>
+          <text>CAShapeLayer</text>
+        </navLabel>
+        <content src="cashapelayer.html"/>
+      </navPoint>
+      <navPoint id="u953a8684-1ddd-40bb-920c-63653f8eeeab" playOrder="33">
+        <navLabel>
+          <text>CATextLayer</text>
+        </navLabel>
+        <content src="CATextLayer.html"/>
+      </navPoint>
+      <navPoint id="ub0e3dbe6-c5b0-40dd-be75-ce2b57301313" playOrder="34">
+        <navLabel>
+          <text>CATransformLayer</text>
+        </navLabel>
+        <content src="catransformlayer.html"/>
+      </navPoint>
+      <navPoint id="u01b219b5-11ca-4582-91a1-70e42273d28e" playOrder="35">
+        <navLabel>
+          <text>CAGradientLayer</text>
+        </navLabel>
+        <content src="cagradientLayer.html"/>
+      </navPoint>
+      <navPoint id="u7f5a491a-256c-4f6f-a53b-d37fd12e593d" playOrder="36">
+        <navLabel>
+          <text>CAReplicatorLayer</text>
+        </navLabel>
+        <content src="careplicatorLayer.html"/>
+      </navPoint>
+      <navPoint id="u8a813dd8-6ae4-4784-be11-3a128c28cbdb" playOrder="37">
+        <navLabel>
+          <text>CAScrollLayer</text>
+        </navLabel>
+        <content src="cascrollLayer.html"/>
+      </navPoint>
+      <navPoint id="u0253aa47-81e1-44e4-83f8-11b8db54ac73" playOrder="38">
+        <navLabel>
+          <text>CATiledLayer</text>
+        </navLabel>
+        <content src="catiledLayer.html"/>
+      </navPoint>
+      <navPoint id="ucf474966-b6c8-4a56-b7df-c2fb56577f5b" playOrder="39">
+        <navLabel>
+          <text>CAEmitterLayer</text>
+        </navLabel>
+        <content src="caemitterlayer.html"/>
+      </navPoint>
+      <navPoint id="u821d9447-5a62-421b-b591-809964e49f86" playOrder="40">
+        <navLabel>
+          <text>CAEAGLLayer</text>
+        </navLabel>
+        <content src="caeagllayer.html"/>
+      </navPoint>
+      <navPoint id="u73f25489-4b98-4baf-895d-987f02c44bba" playOrder="41">
+        <navLabel>
+          <text>AVPlayerLayer</text>
+        </navLabel>
+        <content src="avplayerlayer.html"/>
+      </navPoint>
+      <navPoint id="udf3a1899-9405-4029-a20c-6360ad0f9e42" playOrder="42">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summarry.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u20cb6988-5db5-4810-a12d-91923aee850d" playOrder="43">
+      <navLabel>
+        <text>隐式动画</text>
+      </navLabel>
+      <content src="implicit-animations.html"/>
+      <navPoint id="ud1fdc4de-a352-4a3a-84df-2909e48d2dc0" playOrder="44">
+        <navLabel>
+          <text>事务</text>
+        </navLabel>
+        <content src="transactions.html"/>
+      </navPoint>
+      <navPoint id="u3b1e294b-4aa3-4185-9477-771402b2d65d" playOrder="45">
+        <navLabel>
+          <text>完成块</text>
+        </navLabel>
+        <content src="completion-blocks.html"/>
+      </navPoint>
+      <navPoint id="u65159d35-157f-402e-b011-385e015305e2" playOrder="46">
+        <navLabel>
+          <text>图层行为</text>
+        </navLabel>
+        <content src="layer-actions.html"/>
+      </navPoint>
+      <navPoint id="u229ca12b-210f-45a6-a2dc-426be52bba41" playOrder="47">
+        <navLabel>
+          <text>呈现与模型</text>
+        </navLabel>
+        <content src="presentation-versus-model.html"/>
+      </navPoint>
+      <navPoint id="u9fcf12ac-b030-4550-a8cf-1def9e0e9375" playOrder="48">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary6.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="ue346f89b-8176-4394-a95c-ac498018efaf" playOrder="49">
+      <navLabel>
+        <text>显式动画</text>
+      </navLabel>
+      <content src="explicit-animations.html"/>
+      <navPoint id="u78cd0e83-186d-44f4-8730-a301e89e045f" playOrder="50">
+        <navLabel>
+          <text>属性动画</text>
+        </navLabel>
+        <content src="property-animations.html"/>
+      </navPoint>
+      <navPoint id="u9dd37a14-d884-43d7-9953-4dfa2a29e8c2" playOrder="51">
+        <navLabel>
+          <text>动画组</text>
+        </navLabel>
+        <content src="animation-groups.html"/>
+      </navPoint>
+      <navPoint id="ua4102a3f-eea4-4540-8d3d-d5001df568d4" playOrder="52">
+        <navLabel>
+          <text>过渡</text>
+        </navLabel>
+        <content src="transitions.html"/>
+      </navPoint>
+      <navPoint id="ucae130f0-4af7-4799-a69d-066ce4a86095" playOrder="53">
+        <navLabel>
+          <text>在动画过程中取消动画</text>
+        </navLabel>
+        <content src="changes-custom-transitions.html"/>
+      </navPoint>
+      <navPoint id="u94f7ec62-28e8-42cb-9fb4-d5d36da7ce36" playOrder="54">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary7.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u09560c93-02cb-46a2-af65-72c47b748950" playOrder="55">
+      <navLabel>
+        <text>图层时间</text>
+      </navLabel>
+      <content src="layer-time.html"/>
+      <navPoint id="u90007bfc-6a4b-4e0e-9671-d5af8dd400d6" playOrder="56">
+        <navLabel>
+          <text>`CAMediaTiming`协议</text>
+        </navLabel>
+        <content src="the-cAMediaTiming-protocol.html"/>
+      </navPoint>
+      <navPoint id="uac0f5b36-0359-43f4-8b02-312d107e6135" playOrder="57">
+        <navLabel>
+          <text>层级关系时间</text>
+        </navLabel>
+        <content src="hierarchical-time.html"/>
+      </navPoint>
+      <navPoint id="u2b1817c5-ae52-4687-a4c0-19bcd8e7a436" playOrder="58">
+        <navLabel>
+          <text>手动动画</text>
+        </navLabel>
+        <content src="manual-animation.html"/>
+      </navPoint>
+      <navPoint id="u6eebb1be-f4bf-4d89-b276-c76f06de1cf6" playOrder="59">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary8.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uf9cb30f1-f4ca-43d8-ab5d-0992906ad94f" playOrder="60">
+      <navLabel>
+        <text>缓冲</text>
+      </navLabel>
+      <content src="easing.html"/>
+      <navPoint id="udbe5d681-ded8-498c-b7b7-151f94ae6baa" playOrder="61">
+        <navLabel>
+          <text>动画速度</text>
+        </navLabel>
+        <content src="animation-velocity.html"/>
+      </navPoint>
+      <navPoint id="ubae4918a-bfa8-4f59-abe3-457f1d290cba" playOrder="62">
+        <navLabel>
+          <text>自定义缓冲函数</text>
+        </navLabel>
+        <content src="custom-easing-functions.html"/>
+      </navPoint>
+      <navPoint id="u8f31db58-9570-4af3-a645-84b7e54504b6" playOrder="63">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary9.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="uf237cfc6-6806-46ae-90ee-6b048a190ecc" playOrder="64">
+      <navLabel>
+        <text>基于定时器的动画</text>
+      </navLabel>
+      <content src="timer-based-animation.html"/>
+      <navPoint id="u6f7df1e6-2d70-4660-a1b1-a2f2dea09f7b" playOrder="65">
+        <navLabel>
+          <text>定时帧</text>
+        </navLabel>
+        <content src="frame-timing.html"/>
+      </navPoint>
+      <navPoint id="ube4ec463-cad2-47fb-999d-790a856be0ec" playOrder="66">
+        <navLabel>
+          <text>物理模拟</text>
+        </navLabel>
+        <content src="physical-simulation.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u1818981b-85ca-46b9-ba67-1080047d9e2a" playOrder="67">
+      <navLabel>
+        <text>性能调优</text>
+      </navLabel>
+      <content src="tuning-for-speed.html"/>
+      <navPoint id="uac723712-3fab-4e69-b7ec-880f6341737b" playOrder="68">
+        <navLabel>
+          <text>CPU VS GPU</text>
+        </navLabel>
+        <content src="cpu-versus-gpu.html"/>
+      </navPoint>
+      <navPoint id="u43aaa01a-404f-4332-9050-45399231a910" playOrder="69">
+        <navLabel>
+          <text>测量，而不是猜测</text>
+        </navLabel>
+        <content src="measure-dont-guess.html"/>
+      </navPoint>
+      <navPoint id="ub74f2fac-c14b-4211-9c45-b305d6373982" playOrder="70">
+        <navLabel>
+          <text>Instruments</text>
+        </navLabel>
+        <content src="instruments.html"/>
+      </navPoint>
+      <navPoint id="u0bcbee61-d30d-47a4-a200-86b06f6528af" playOrder="71">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary10.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u5b7c5d59-9edd-429b-9620-03614530b439" playOrder="72">
+      <navLabel>
+        <text>高效绘图</text>
+      </navLabel>
+      <content src="efficient-drawing.html"/>
+      <navPoint id="uc7530438-da75-4bb6-bfbd-f5b7a8b61a0d" playOrder="73">
+        <navLabel>
+          <text>软件绘图</text>
+        </navLabel>
+        <content src="software-drawing-vector-graphics.html"/>
+      </navPoint>
+      <navPoint id="u42f84fce-27e3-4310-bf9e-755409d74722" playOrder="74">
+        <navLabel>
+          <text>矢量图形</text>
+        </navLabel>
+        <content src="catiledLayer1.html"/>
+      </navPoint>
+      <navPoint id="u2f18e616-f860-4155-b717-42deae45c06a" playOrder="75">
+        <navLabel>
+          <text>脏矩形</text>
+        </navLabel>
+        <content src="dirty-rectangles.html"/>
+      </navPoint>
+      <navPoint id="ubc755f13-4e0c-4393-81d2-ce8a43ab3f14" playOrder="76">
+        <navLabel>
+          <text>异步绘制</text>
+        </navLabel>
+        <content src="drawsasynchronously.html"/>
+      </navPoint>
+      <navPoint id="u3f160637-caf6-42dd-b7e0-6c47ba2f3c44" playOrder="77">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary11.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u69755816-da18-437b-87d7-61c5810093b2" playOrder="78">
+      <navLabel>
+        <text>图像IO</text>
+      </navLabel>
+      <content src="image-ioi.html"/>
+      <navPoint id="udafb0423-9170-4632-a5a0-8f65f99ed8ef" playOrder="79">
+        <navLabel>
+          <text>加载和潜伏</text>
+        </navLabel>
+        <content src="loading-and-latency.html"/>
+      </navPoint>
+      <navPoint id="u504beb0f-1ab4-43fa-8dc9-e5982d146599" playOrder="80">
+        <navLabel>
+          <text>缓存</text>
+        </navLabel>
+        <content src="caching.html"/>
+      </navPoint>
+      <navPoint id="u6db5055a-fd14-4243-aa69-fa21452efb76" playOrder="81">
+        <navLabel>
+          <text>文件格式</text>
+        </navLabel>
+        <content src="file-format.html"/>
+      </navPoint>
+      <navPoint id="ued337c9b-f73f-469c-87af-6fda1f7dc4ab" playOrder="82">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary12.html"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="u8753528a-2b76-4023-a797-ac5cbbf3a78a" playOrder="83">
+      <navLabel>
+        <text>图层性能</text>
+      </navLabel>
+      <content src="layer-performance.html"/>
+      <navPoint id="ua86b6e52-b2c7-488b-92da-235c6389cef4" playOrder="84">
+        <navLabel>
+          <text>隐式绘制</text>
+        </navLabel>
+        <content src="inexplicit-drawing-text.html"/>
+      </navPoint>
+      <navPoint id="u3a3ab10c-cd79-492d-989c-2251a129d96f" playOrder="85">
+        <navLabel>
+          <text>离屏渲染</text>
+        </navLabel>
+        <content src="offscreen-rendering.html"/>
+      </navPoint>
+      <navPoint id="uba8f5f2f-1db1-48f0-8cfe-7dab52fd9304" playOrder="86">
+        <navLabel>
+          <text>混合和过度绘制</text>
+        </navLabel>
+        <content src="blending-and-overdraw.html"/>
+      </navPoint>
+      <navPoint id="u9d59d308-8272-446a-92b1-732cd43d79ce" playOrder="87">
+        <navLabel>
+          <text>减少图层数量</text>
+        </navLabel>
+        <content src="blending-and-overdraw-reducing-layer-count.html"/>
+      </navPoint>
+      <navPoint id="u9463ca44-5c4c-46e7-98fc-a0e5b7d60dd2" playOrder="88">
+        <navLabel>
+          <text>总结</text>
+        </navLabel>
+        <content src="summary13.html"/>
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

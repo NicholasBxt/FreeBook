@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>图层的能力 | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_4">图层的能力</h1>
+        
+            <div class="section" id="section-">
+            
+                <h1 id="图层的能力" class="calibre6">图层的能力</h1>
+<p class="calibre7">    如果说<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>是<code class="pcalibre4 pcalibre3 calibre14">UIView</code>内部实现细节，那我们为什么要全面地了解它呢？苹果当然为我们提供了优美简洁的<code class="pcalibre4 pcalibre3 calibre14">UIView</code>接口，那么我们是否就没必要直接去处理Core Animation的细节了呢？</p>
+<p class="calibre7">    某种意义上说的确是这样，对一些简单的需求来说，我们确实没必要处理<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>，因为苹果已经通过<code class="pcalibre4 pcalibre3 calibre14">UIView</code>的高级API间接地使得动画变得很简单。</p>
+<p class="calibre7">    但是这种简单会不可避免地带来一些灵活上的缺陷。如果你略微想在底层做一些改变，或者使用一些苹果没有在<code class="pcalibre4 pcalibre3 calibre14">UIView</code>上实现的接口功能，这时除了介入Core Animation底层之外别无选择。</p>
+<p class="calibre7">    我们已经证实了图层不能像视图那样处理触摸事件，那么他能做哪些视图不能做的呢？这里有一些<code class="pcalibre4 pcalibre3 calibre14">UIView</code>没有暴露出来的CALayer的功能：</p>
+<ul class="calibre16">
+<li class="calibre17">阴影，圆角，带颜色的边框</li>
+<li class="calibre17">3D变换</li>
+<li class="calibre17">非矩形范围</li>
+<li class="calibre17">透明遮罩</li>
+<li class="calibre17">多级非线性动画</li>
+</ul>
+<p class="calibre7">    我们将会在后续章节中探索这些功能，首先我们要关注一下在应用程序当中<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>是怎样被利用起来的。</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

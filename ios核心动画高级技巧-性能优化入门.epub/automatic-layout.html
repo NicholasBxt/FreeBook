@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>自动布局 | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_16">自动布局</h1>
+        
+            <div class="section" id="section-">
+            
+                <h1 id="自动布局" class="calibre6">自动布局</h1>
+<p class="calibre7">    你可能用过<code class="pcalibre4 pcalibre3 calibre14">UIViewAutoresizingMask</code>类型的一些常量，应用于当父视图改变尺寸的时候，相应<code class="pcalibre4 pcalibre3 calibre14">UIView</code>的<code class="pcalibre4 pcalibre3 calibre14">frame</code>也跟着更新的场景（通常用于横竖屏切换）。</p>
+<p class="calibre7">    在iOS6中，苹果介绍了<em class="calibre11">自动排版</em>机制，它和自动调整不同，并且更加复杂。</p>
+<p class="calibre7">    在Mac OS平台，<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>有一个叫做<code class="pcalibre4 pcalibre3 calibre14">layoutManager</code>的属性可以通过<code class="pcalibre4 pcalibre3 calibre14">CALayoutManager</code>协议和<code class="pcalibre4 pcalibre3 calibre14">CAConstraintLayoutManager</code>类来实现自动排版的机制。但由于某些原因，这在iOS上并不适用。</p>
+<p class="calibre7">    当使用视图的时候，可以充分利用<code class="pcalibre4 pcalibre3 calibre14">UIView</code>类接口暴露出来的<code class="pcalibre4 pcalibre3 calibre14">UIViewAutoresizingMask</code>和<code class="pcalibre4 pcalibre3 calibre14">NSLayoutConstraint</code>API，但如果想随意控制<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>的布局，就需要手工操作。最简单的方法就是使用<code class="pcalibre4 pcalibre3 calibre14">CALayerDelegate</code>如下函数：</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">- (void)layoutSublayersOfLayer:(CALayer *)layer;
+</code></pre><p class="calibre7">    当图层的<code class="pcalibre4 pcalibre3 calibre14">bounds</code>发生改变，或者图层的<code class="pcalibre4 pcalibre3 calibre14">-setNeedsLayout</code>方法被调用的时候，这个函数将会被执行。这使得你可以手动地重新摆放或者重新调整子图层的大小，但是不能像<code class="pcalibre4 pcalibre3 calibre14">UIView</code>的<code class="pcalibre4 pcalibre3 calibre14">autoresizingMask</code>和<code class="pcalibre4 pcalibre3 calibre14">constraints</code>属性做到自适应屏幕旋转。</p>
+<p class="calibre7">    这也是为什么最好使用视图而不是单独的图层来构建应用程序的另一个重要原因之一。</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>矢量图形 | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_74">矢量图形</h1>
+        
+            <div class="section" id="section-">
+            
+                <h2 id="矢量图形" class="calibre12">矢量图形</h2>
+<p class="calibre7">    我们用Core Graphics来绘图的一个通常原因就是只是用图片或是图层效果不能轻易地绘制出矢量图形。矢量绘图包含一下这些：</p>
+<ul class="calibre16">
+<li class="calibre17">任意多边形（不仅仅是一个矩形）</li>
+<li class="calibre17">斜线或曲线</li>
+<li class="calibre17">文本</li>
+<li class="calibre17">渐变</li>
+</ul>
+<p class="calibre7">    举个例子，清单13.1 展示了一个基本的画线应用。这个应用将用户的触摸手势转换成一个<code class="pcalibre4 pcalibre3 calibre14">UIBezierPath</code>上的点，然后绘制成视图。我们在一个<code class="pcalibre4 pcalibre3 calibre14">UIView</code>子类<code class="pcalibre4 pcalibre3 calibre14">DrawingView</code>中实现了所有的绘制逻辑，这个情况下我们没有用上view controller。但是如果你喜欢你可以在view controller中实现触摸事件处理。图13.1是代码运行结果。</p>
+<p class="calibre7">清单13.1 用Core Graphics实现一个简单的绘图应用</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">#import "DrawingView.h"
+
+@interface DrawingView ()
+
+@property (nonatomic, strong) UIBezierPath *path;
+
+@end
+
+@implementation DrawingView
+
+- (void)awakeFromNib
+{
+    //create a mutable path
+    self.path = [[UIBezierPath alloc] init];
+    self.path.lineJoinStyle = kCGLineJoinRound;
+    self.path.lineCapStyle = kCGLineCapRound;
+    ￼
+    self.path.lineWidth = 5;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //get the starting point
+    CGPoint point = [[touches anyObject] locationInView:self];
+
+    //move the path drawing cursor to the starting point
+    [self.path moveToPoint:point];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //get the current point
+    CGPoint point = [[touches anyObject] locationInView:self];
+
+    //add a new line segment to our path
+    [self.path addLineToPoint:point];
+
+    //redraw the view
+    [self setNeedsDisplay];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    //draw path
+    [[UIColor clearColor] setFill];
+    [[UIColor redColor] setStroke];
+    [self.path stroke];
+}
+@end
+</code></pre>
+<p class="calibre7"><img alt="图13.1" src="13.1.png" class="calibre21"/></p>
+<p class="calibre7">图13.1 用Core Graphics做一个简单的『素描』</p>
+<p class="calibre7">    这样实现的问题在于，我们画得越多，程序就会越慢。因为每次移动手指的时候都会重绘整个贝塞尔路径（<code class="pcalibre4 pcalibre3 calibre14">UIBezierPath</code>），随着路径越来越复杂，每次重绘的工作就会增加，直接导致了帧数的下降。看来我们需要一个更好的方法了。</p>
+<p class="calibre7">    Core Animation为这些图形类型的绘制提供了专门的类，并给他们提供硬件支持（第六章『专有图层』有详细提到）。<code class="pcalibre4 pcalibre3 calibre14">CAShapeLayer</code>可以绘制多边形，直线和曲线。<code class="pcalibre4 pcalibre3 calibre14">CATextLayer</code>可以绘制文本。<code class="pcalibre4 pcalibre3 calibre14">CAGradientLayer</code>用来绘制渐变。这些总体上都比Core Graphics更快，同时他们也避免了创造一个寄宿图。</p>
+<p class="calibre7">    如果稍微将之前的代码变动一下，用<code class="pcalibre4 pcalibre3 calibre14">CAShapeLayer</code>替代Core Graphics，性能就会得到提高（见清单13.2）.虽然随着路径复杂性的增加，绘制性能依然会下降，但是只有当非常非常浮躁的绘制时才会感到明显的帧率差异。</p>
+<p class="calibre7">清单13.2 用<code class="pcalibre4 pcalibre3 calibre14">CAShapeLayer</code>重新实现绘图应用</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">#import "DrawingView.h"
+#import <quartzcore quartzcore.h="" class="calibre18">
+
+@interface DrawingView ()
+
+@property (nonatomic, strong) UIBezierPath *path;
+
+@end
+￼
+@implementation DrawingView
+
++ (Class)layerClass
+{
+    //this makes our view create a CAShapeLayer
+    //instead of a CALayer for its backing layer
+    return [CAShapeLayer class];
+}
+
+- (void)awakeFromNib
+{
+    //create a mutable path
+    self.path = [[UIBezierPath alloc] init];
+
+    //configure the layer
+    CAShapeLayer *shapeLayer = (CAShapeLayer *)self.layer;
+    shapeLayer.strokeColor = [UIColor redColor].CGColor;
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    shapeLayer.lineJoin = kCALineJoinRound;
+    shapeLayer.lineCap = kCALineCapRound;
+    shapeLayer.lineWidth = 5;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //get the starting point
+    CGPoint point = [[touches anyObject] locationInView:self];
+
+    //move the path drawing cursor to the starting point
+    [self.path moveToPoint:point];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //get the current point
+    CGPoint point = [[touches anyObject] locationInView:self];
+
+    //add a new line segment to our path
+    [self.path addLineToPoint:point];
+
+    //update the layer with a copy of the path
+    ((CAShapeLayer *)self.layer).path = self.path.CGPath;
+}
+@end
+</quartzcore></code></pre>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+  <metadata xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata" xmlns:dcterms="http://purl.org/dc/terms/">
+    <dc:title>ios核心动画高级技巧</dc:title>
+    <dc:language>zh</dc:language>
+    <meta name="calibre:timestamp" content="2016-05-23T06:45:17.937001+00:00"/>
+    <dc:contributor opf:role="bkp">GitBook</dc:contributor>
+    <dc:publisher>GitBook</dc:publisher>
+    <dc:creator opf:file-as="Unknown" opf:role="aut">钟声</dc:creator>
+    <dc:description>gitbook上的地址</dc:description>
+    <meta name="cover" content="cover"/>
+    <dc:identifier id="uuid_id" opf:scheme="uuid">9ff75253-2e9f-416c-aab7-c8044657d120</dc:identifier>
+  </metadata>
+  <manifest>
+    <item href="cover.jpg" id="cover" media-type="image/jpeg"/>
+    <item href="1.1.jpeg" id="added2" media-type="image/jpeg"/>
+    <item href="1.2.jpeg" id="added3" media-type="image/jpeg"/>
+    <item href="1.3.jpeg" id="added4" media-type="image/jpeg"/>
+    <item href="1.4.jpeg" id="added5" media-type="image/jpeg"/>
+    <item href="1.5.jpeg" id="added6" media-type="image/jpeg"/>
+    <item href="10.1.jpeg" id="added99" media-type="image/jpeg"/>
+    <item href="10.2.jpeg" id="added100" media-type="image/jpeg"/>
+    <item href="10.3.jpeg" id="added101" media-type="image/jpeg"/>
+    <item href="10.4.jpeg" id="added102" media-type="image/jpeg"/>
+    <item href="10.5.jpeg" id="added103" media-type="image/jpeg"/>
+    <item href="10.6.jpeg" id="added104" media-type="image/jpeg"/>
+    <item href="11.1.jpeg" id="added105" media-type="image/jpeg"/>
+    <item href="11.2.jpeg" id="added106" media-type="image/jpeg"/>
+    <item href="12.1.jpeg" id="added107" media-type="image/jpeg"/>
+    <item href="12.10.jpeg" id="added116" media-type="image/jpeg"/>
+    <item href="12.11.jpeg" id="added117" media-type="image/jpeg"/>
+    <item href="12.12.jpeg" id="added118" media-type="image/jpeg"/>
+    <item href="12.13.jpeg" id="added119" media-type="image/jpeg"/>
+    <item href="12.2.jpeg" id="added108" media-type="image/jpeg"/>
+    <item href="12.3.jpeg" id="added109" media-type="image/jpeg"/>
+    <item href="12.4.jpeg" id="added110" media-type="image/jpeg"/>
+    <item href="12.5.jpeg" id="added111" media-type="image/jpeg"/>
+    <item href="12.6.jpeg" id="added112" media-type="image/jpeg"/>
+    <item href="12.7.jpeg" id="added113" media-type="image/jpeg"/>
+    <item href="12.8.jpeg" id="added114" media-type="image/jpeg"/>
+    <item href="12.9.jpeg" id="added115" media-type="image/jpeg"/>
+    <item href="13.1.png" id="added120" media-type="image/png"/>
+    <item href="14.1.jpeg" id="added121" media-type="image/jpeg"/>
+    <item href="14.2.jpeg" id="added122" media-type="image/jpeg"/>
+    <item href="14.3.jpeg" id="added123" media-type="image/jpeg"/>
+    <item href="14.4.jpeg" id="added124" media-type="image/jpeg"/>
+    <item href="14.5.jpeg" id="added125" media-type="image/jpeg"/>
+    <item href="15.1.png" id="added126" media-type="image/png"/>
+    <item href="2.1.png" id="added7" media-type="image/png"/>
+    <item href="2.10.png" id="added16" media-type="image/png"/>
+    <item href="2.11.png" id="added17" media-type="image/png"/>
+    <item href="2.12.png" id="added18" media-type="image/png"/>
+    <item href="2.2.png" id="added8" media-type="image/png"/>
+    <item href="2.3.png" id="added9" media-type="image/png"/>
+    <item href="2.4.png" id="added10" media-type="image/png"/>
+    <item href="2.5.png" id="added11" media-type="image/png"/>
+    <item href="2.6.png" id="added12" media-type="image/png"/>
+    <item href="2.7.png" id="added13" media-type="image/png"/>
+    <item href="2.8.png" id="added14" media-type="image/png"/>
+    <item href="2.9.png" id="added15" media-type="image/png"/>
+    <item href="3.1.jpeg" id="added19" media-type="image/jpeg"/>
+    <item href="3.10.jpeg" id="added28" media-type="image/jpeg"/>
+    <item href="3.2.jpeg" id="added20" media-type="image/jpeg"/>
+    <item href="3.3.jpeg" id="added21" media-type="image/jpeg"/>
+    <item href="3.4.jpeg" id="added22" media-type="image/jpeg"/>
+    <item href="3.5.jpeg" id="added23" media-type="image/jpeg"/>
+    <item href="3.6.jpeg" id="added24" media-type="image/jpeg"/>
+    <item href="3.7.jpeg" id="added25" media-type="image/jpeg"/>
+    <item href="3.8.jpeg" id="added26" media-type="image/jpeg"/>
+    <item href="3.9.jpeg" id="added27" media-type="image/jpeg"/>
+    <item href="3d-transform.html" id="html28" media-type="application/xhtml+xml"/>
+    <item href="4.1.png" id="added29" media-type="image/png"/>
+    <item href="4.10.png" id="added38" media-type="image/png"/>
+    <item href="4.11.png" id="added39" media-type="image/png"/>
+    <item href="4.12.png" id="added40" media-type="image/png"/>
+    <item href="4.13.png" id="added41" media-type="image/png"/>
+    <item href="4.14.png" id="added42" media-type="image/png"/>
+    <item href="4.15.png" id="added43" media-type="image/png"/>
+    <item href="4.16.png" id="added44" media-type="image/png"/>
+    <item href="4.18.png" id="added45" media-type="image/png"/>
+    <item href="4.19.png" id="added46" media-type="image/png"/>
+    <item href="4.2.png" id="added30" media-type="image/png"/>
+    <item href="4.20.png" id="added47" media-type="image/png"/>
+    <item href="4.21.png" id="added48" media-type="image/png"/>
+    <item href="4.3.png" id="added31" media-type="image/png"/>
+    <item href="4.4.png" id="added32" media-type="image/png"/>
+    <item href="4.5.png" id="added33" media-type="image/png"/>
+    <item href="4.6.png" id="added34" media-type="image/png"/>
+    <item href="4.7.png" id="added35" media-type="image/png"/>
+    <item href="4.8.png" id="added36" media-type="image/png"/>
+    <item href="4.9.png" id="added37" media-type="image/png"/>
+    <item href="5.1.jpeg" id="added49" media-type="image/jpeg"/>
+    <item href="5.10.jpeg" id="added57" media-type="image/jpeg"/>
+    <item href="5.11.jpeg" id="added58" media-type="image/jpeg"/>
+    <item href="5.12.jpeg" id="added59" media-type="image/jpeg"/>
+    <item href="5.13.jpeg" id="added60" media-type="image/jpeg"/>
+    <item href="5.14.jpeg" id="added61" media-type="image/jpeg"/>
+    <item href="5.15.jpeg" id="added62" media-type="image/jpeg"/>
+    <item href="5.16.jpeg" id="added63" media-type="image/jpeg"/>
+    <item href="5.17.jpeg" id="added64" media-type="image/jpeg"/>
+    <item href="5.18.jpeg" id="added65" media-type="image/jpeg"/>
+    <item href="5.19.jpeg" id="added66" media-type="image/jpeg"/>
+    <item href="5.2.jpeg" id="added50" media-type="image/jpeg"/>
+    <item href="5.20.jpeg" id="added67" media-type="image/jpeg"/>
+    <item href="5.21.jpeg" id="added68" media-type="image/jpeg"/>
+    <item href="5.22.jpeg" id="added69" media-type="image/jpeg"/>
+    <item href="5.23.jpeg" id="added70" media-type="image/jpeg"/>
+    <item href="5.3.jpeg" id="added51" media-type="image/jpeg"/>
+    <item href="5.4.jpeg" id="added52" media-type="image/jpeg"/>
+    <item href="5.6.jpeg" id="added53" media-type="image/jpeg"/>
+    <item href="5.7.jpeg" id="added54" media-type="image/jpeg"/>
+    <item href="5.8.jpeg" id="added55" media-type="image/jpeg"/>
+    <item href="5.9.jpeg" id="added56" media-type="image/jpeg"/>
+    <item href="6.1.png" id="added71" media-type="image/png"/>
+    <item href="6.10.png" id="added80" media-type="image/png"/>
+    <item href="6.12.png" id="added81" media-type="image/png"/>
+    <item href="6.14.png" id="added82" media-type="image/png"/>
+    <item href="6.15.png" id="added83" media-type="image/png"/>
+    <item href="6.16.png" id="added84" media-type="image/png"/>
+    <item href="6.17.png" id="added85" media-type="image/png"/>
+    <item href="6.2.png" id="added72" media-type="image/png"/>
+    <item href="6.3.png" id="added73" media-type="image/png"/>
+    <item href="6.4.png" id="added74" media-type="image/png"/>
+    <item href="6.5.png" id="added75" media-type="image/png"/>
+    <item href="6.6.png" id="added76" media-type="image/png"/>
+    <item href="6.7.png" id="added77" media-type="image/png"/>
+    <item href="6.8.png" id="added78" media-type="image/png"/>
+    <item href="6.9.png" id="added79" media-type="image/png"/>
+    <item href="7.1.jpeg" id="added86" media-type="image/jpeg"/>
+    <item href="7.2.jpeg" id="added87" media-type="image/jpeg"/>
+    <item href="7.3.jpeg" id="added88" media-type="image/jpeg"/>
+    <item href="7.4.jpeg" id="added89" media-type="image/jpeg"/>
+    <item href="8.1.jpeg" id="added90" media-type="image/jpeg"/>
+    <item href="8.2.jpeg" id="added91" media-type="image/jpeg"/>
+    <item href="8.3.jpeg" id="added92" media-type="image/jpeg"/>
+    <item href="8.4.jpeg" id="added93" media-type="image/jpeg"/>
+    <item href="8.5.jpeg" id="added94" media-type="image/jpeg"/>
+    <item href="8.6.jpeg" id="added95" media-type="image/jpeg"/>
+    <item href="9.1.jpeg" id="added96" media-type="image/jpeg"/>
+    <item href="9.2.jpeg" id="added97" media-type="image/jpeg"/>
+    <item href="9.3.jpeg" id="added98" media-type="image/jpeg"/>
+    <item href="CATextLayer.html" id="html33" media-type="application/xhtml+xml"/>
+    <item href="SUMMARY.html" id="html" media-type="application/xhtml+xml"/>
+    <item href="affine-fransforms.html" id="html27" media-type="application/xhtml+xml"/>
+    <item href="anchor.html" id="html13" media-type="application/xhtml+xml"/>
+    <item href="animation-groups.html" id="html51" media-type="application/xhtml+xml"/>
+    <item href="animation-velocity.html" id="html61" media-type="application/xhtml+xml"/>
+    <item href="automatic-layout.html" id="html16" media-type="application/xhtml+xml"/>
+    <item href="avplayerlayer.html" id="html41" media-type="application/xhtml+xml"/>
+    <item href="ayer-borders.html" id="html20" media-type="application/xhtml+xml"/>
+    <item href="blending-and-overdraw-reducing-layer-count.html" id="html87" media-type="application/xhtml+xml"/>
+    <item href="blending-and-overdraw.html" id="html86" media-type="application/xhtml+xml"/>
+    <item href="caching.html" id="html80" media-type="application/xhtml+xml"/>
+    <item href="caeagllayer.html" id="html40" media-type="application/xhtml+xml"/>
+    <item href="caemitterlayer.html" id="html39" media-type="application/xhtml+xml"/>
+    <item href="cagradientLayer.html" id="html35" media-type="application/xhtml+xml"/>
+    <item href="careplicatorLayer.html" id="html36" media-type="application/xhtml+xml"/>
+    <item href="cascrollLayer.html" id="html37" media-type="application/xhtml+xml"/>
+    <item href="cashapelayer.html" id="html32" media-type="application/xhtml+xml"/>
+    <item href="catiledLayer.html" id="html38" media-type="application/xhtml+xml"/>
+    <item href="catiledLayer1.html" id="html74" media-type="application/xhtml+xml"/>
+    <item href="catransformlayer.html" id="html34" media-type="application/xhtml+xml"/>
+    <item href="changes-custom-transitions.html" id="html53" media-type="application/xhtml+xml"/>
+    <item href="completion-blocks.html" id="html45" media-type="application/xhtml+xml"/>
+    <item href="coordinate-systens.html" id="html14" media-type="application/xhtml+xml"/>
+    <item href="cpu-versus-gpu.html" id="html68" media-type="application/xhtml+xml"/>
+    <item href="custom-drawing.html" id="html9" media-type="application/xhtml+xml"/>
+    <item href="custom-easing-functions.html" id="html62" media-type="application/xhtml+xml"/>
+    <item href="dirty-rectangles.html" id="html75" media-type="application/xhtml+xml"/>
+    <item href="drawsasynchronously.html" id="html76" media-type="application/xhtml+xml"/>
+    <item href="drop-shadows.html" id="html21" media-type="application/xhtml+xml"/>
+    <item href="easing.html" id="html60" media-type="application/xhtml+xml"/>
+    <item href="efficient-drawing.html" id="html72" media-type="application/xhtml+xml"/>
+    <item href="explicit-animations.html" id="html49" media-type="application/xhtml+xml"/>
+    <item href="file-format.html" id="html81" media-type="application/xhtml+xml"/>
+    <item href="frame-timing.html" id="html65" media-type="application/xhtml+xml"/>
+    <item href="group-opacity.html" id="html24" media-type="application/xhtml+xml"/>
+    <item href="hierarchical-time.html" id="html57" media-type="application/xhtml+xml"/>
+    <item href="hit-testing.html" id="html15" media-type="application/xhtml+xml"/>
+    <item href="image-ioi.html" id="html78" media-type="application/xhtml+xml"/>
+    <item href="implicit-animations.html" id="html43" media-type="application/xhtml+xml"/>
+    <item href="index.html" id="html1" media-type="application/xhtml+xml"/>
+    <item href="inexplicit-drawing-text.html" id="html84" media-type="application/xhtml+xml"/>
+    <item href="instruments.html" id="html70" media-type="application/xhtml+xml"/>
+    <item href="layer-actions.html" id="html46" media-type="application/xhtml+xml"/>
+    <item href="layer-capabilities.html" id="html4" media-type="application/xhtml+xml"/>
+    <item href="layer-geometry.html" id="html11" media-type="application/xhtml+xml"/>
+    <item href="layer-masking.html" id="html22" media-type="application/xhtml+xml"/>
+    <item href="layer-performance.html" id="html83" media-type="application/xhtml+xml"/>
+    <item href="layer-time.html" id="html55" media-type="application/xhtml+xml"/>
+    <item href="layers-and-trees.html" id="html3" media-type="application/xhtml+xml"/>
+    <item href="layout.html" id="html12" media-type="application/xhtml+xml"/>
+    <item href="loading-and-latency.html" id="html79" media-type="application/xhtml+xml"/>
+    <item href="manual-animation.html" id="html58" media-type="application/xhtml+xml"/>
+    <item href="measure-dont-guess.html" id="html69" media-type="application/xhtml+xml"/>
+    <item href="offscreen-rendering.html" id="html85" media-type="application/xhtml+xml"/>
+    <item href="page_styles.css" id="page_css" media-type="text/css"/>
+    <item href="physical-simulation.html" id="html66" media-type="application/xhtml+xml"/>
+    <item href="presentation-versus-model.html" id="html47" media-type="application/xhtml+xml"/>
+    <item href="property-animations.html" id="html50" media-type="application/xhtml+xml"/>
+    <item href="rounded-corners.html" id="html19" media-type="application/xhtml+xml"/>
+    <item href="scaling-filters.html" id="html23" media-type="application/xhtml+xml"/>
+    <item href="software-drawing-vector-graphics.html" id="html73" media-type="application/xhtml+xml"/>
+    <item href="solid-objects.html" id="html29" media-type="application/xhtml+xml"/>
+    <item href="specialized-layers.html" id="html31" media-type="application/xhtml+xml"/>
+    <item href="stylesheet.css" id="css" media-type="text/css"/>
+    <item href="summarry.html" id="html42" media-type="application/xhtml+xml"/>
+    <item href="summary1.html" id="html6" media-type="application/xhtml+xml"/>
+    <item href="summary10.html" id="html71" media-type="application/xhtml+xml"/>
+    <item href="summary11.html" id="html77" media-type="application/xhtml+xml"/>
+    <item href="summary12.html" id="html82" media-type="application/xhtml+xml"/>
+    <item href="summary13.html" id="html88" media-type="application/xhtml+xml"/>
+    <item href="summary2.html" id="html10" media-type="application/xhtml+xml"/>
+    <item href="summary3.html" id="html17" media-type="application/xhtml+xml"/>
+    <item href="summary4.html" id="html25" media-type="application/xhtml+xml"/>
+    <item href="summary5.html" id="html30" media-type="application/xhtml+xml"/>
+    <item href="summary6.html" id="html48" media-type="application/xhtml+xml"/>
+    <item href="summary7.html" id="html54" media-type="application/xhtml+xml"/>
+    <item href="summary8.html" id="html59" media-type="application/xhtml+xml"/>
+    <item href="summary9.html" id="html63" media-type="application/xhtml+xml"/>
+    <item href="the-Backing-Image.html" id="html7" media-type="application/xhtml+xml"/>
+    <item href="the-cAMediaTiming-protocol.html" id="html56" media-type="application/xhtml+xml"/>
+    <item href="the-contents-image.html" id="html8" media-type="application/xhtml+xml"/>
+    <item href="the-layer-tree.html" id="html2" media-type="application/xhtml+xml"/>
+    <item href="timer-based-animation.html" id="html64" media-type="application/xhtml+xml"/>
+    <item href="titlepage.xhtml" id="titlepage" media-type="application/xhtml+xml"/>
+    <item href="transactions.html" id="html44" media-type="application/xhtml+xml"/>
+    <item href="transforms.html" id="html26" media-type="application/xhtml+xml"/>
+    <item href="transitions.html" id="html52" media-type="application/xhtml+xml"/>
+    <item href="tuning-for-speed.html" id="html67" media-type="application/xhtml+xml"/>
+    <item href="visual-effcts.html" id="html18" media-type="application/xhtml+xml"/>
+    <item href="working-with-layers.html" id="html5" media-type="application/xhtml+xml"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="titlepage"/>
+    <itemref idref="html"/>
+    <itemref idref="html1"/>
+    <itemref idref="html2"/>
+    <itemref idref="html3"/>
+    <itemref idref="html4"/>
+    <itemref idref="html5"/>
+    <itemref idref="html6"/>
+    <itemref idref="html7"/>
+    <itemref idref="html8"/>
+    <itemref idref="html9"/>
+    <itemref idref="html10"/>
+    <itemref idref="html11"/>
+    <itemref idref="html12"/>
+    <itemref idref="html13"/>
+    <itemref idref="html14"/>
+    <itemref idref="html15"/>
+    <itemref idref="html16"/>
+    <itemref idref="html17"/>
+    <itemref idref="html18"/>
+    <itemref idref="html19"/>
+    <itemref idref="html20"/>
+    <itemref idref="html21"/>
+    <itemref idref="html22"/>
+    <itemref idref="html23"/>
+    <itemref idref="html24"/>
+    <itemref idref="html25"/>
+    <itemref idref="html26"/>
+    <itemref idref="html27"/>
+    <itemref idref="html28"/>
+    <itemref idref="html29"/>
+    <itemref idref="html30"/>
+    <itemref idref="html31"/>
+    <itemref idref="html32"/>
+    <itemref idref="html33"/>
+    <itemref idref="html34"/>
+    <itemref idref="html35"/>
+    <itemref idref="html36"/>
+    <itemref idref="html37"/>
+    <itemref idref="html38"/>
+    <itemref idref="html39"/>
+    <itemref idref="html40"/>
+    <itemref idref="html41"/>
+    <itemref idref="html42"/>
+    <itemref idref="html43"/>
+    <itemref idref="html44"/>
+    <itemref idref="html45"/>
+    <itemref idref="html46"/>
+    <itemref idref="html47"/>
+    <itemref idref="html48"/>
+    <itemref idref="html49"/>
+    <itemref idref="html50"/>
+    <itemref idref="html51"/>
+    <itemref idref="html52"/>
+    <itemref idref="html53"/>
+    <itemref idref="html54"/>
+    <itemref idref="html55"/>
+    <itemref idref="html56"/>
+    <itemref idref="html57"/>
+    <itemref idref="html58"/>
+    <itemref idref="html59"/>
+    <itemref idref="html60"/>
+    <itemref idref="html61"/>
+    <itemref idref="html62"/>
+    <itemref idref="html63"/>
+    <itemref idref="html64"/>
+    <itemref idref="html65"/>
+    <itemref idref="html66"/>
+    <itemref idref="html67"/>
+    <itemref idref="html68"/>
+    <itemref idref="html69"/>
+    <itemref idref="html70"/>
+    <itemref idref="html71"/>
+    <itemref idref="html72"/>
+    <itemref idref="html73"/>
+    <itemref idref="html74"/>
+    <itemref idref="html75"/>
+    <itemref idref="html76"/>
+    <itemref idref="html77"/>
+    <itemref idref="html78"/>
+    <itemref idref="html79"/>
+    <itemref idref="html80"/>
+    <itemref idref="html81"/>
+    <itemref idref="html82"/>
+    <itemref idref="html83"/>
+    <itemref idref="html84"/>
+    <itemref idref="html85"/>
+    <itemref idref="html86"/>
+    <itemref idref="html87"/>
+    <itemref idref="html88"/>
+  </spine>
+  <guide>
+    <reference href="titlepage.xhtml" title="Cover" type="cover"/>
+  </guide>
+</package>

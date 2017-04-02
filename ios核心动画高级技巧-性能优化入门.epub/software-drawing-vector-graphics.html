@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>软件绘图 | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_73">软件绘图</h1>
+        
+            <div class="section" id="section-">
+            
+                <h2 id="软件绘图" class="calibre12">软件绘图</h2>
+<p class="calibre7">    术语<em class="calibre11">绘图</em>通常在Core Animation的上下文中指代软件绘图（意即：不由GPU协助的绘图）。在iOS中，软件绘图通常是由Core Graphics框架完成来完成。但是，在一些必要的情况下，相比Core Animation和OpenGL，Core Graphics要慢了不少。</p>
+<p class="calibre7">    软件绘图不仅效率低，还会消耗可观的内存。<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>只需要一些与自己相关的内存：只有它的寄宿图会消耗一定的内存空间。即使直接赋给<code class="pcalibre4 pcalibre3 calibre14">contents</code>属性一张图片，也不需要增加额外的照片存储大小。如果相同的一张图片被多个图层作为<code class="pcalibre4 pcalibre3 calibre14">contents</code>属性，那么他们将会共用同一块内存，而不是复制内存块。</p>
+<p class="calibre7">    但是一旦你实现了<code class="pcalibre4 pcalibre3 calibre14">CALayerDelegate</code>协议中的<code class="pcalibre4 pcalibre3 calibre14">-drawLayer:inContext:</code>方法或者<code class="pcalibre4 pcalibre3 calibre14">UIView</code>中的<code class="pcalibre4 pcalibre3 calibre14">-drawRect:</code>方法（其实就是前者的包装方法），图层就创建了一个绘制上下文，这个上下文需要的大小的内存可从这个算式得出：图层宽*图层高*4字节，宽高的单位均为像素。对于一个在Retina iPad上的全屏图层来说，这个内存量就是 2048*1526*4字节，相当于12MB内存，图层每次重绘的时候都需要重新抹掉内存然后重新分配。</p>
+<p class="calibre7">    软件绘图的代价昂贵，除非绝对必要，你应该避免重绘你的视图。提高绘制性能的秘诀就在于尽量避免去绘制。</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

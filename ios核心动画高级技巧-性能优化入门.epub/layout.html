@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>布局 | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_12">布局</h1>
+        
+            <div class="section" id="section-">
+            
+                <h1 id="布局" class="calibre6">布局</h1>
+<p class="calibre7">    <code class="pcalibre4 pcalibre3 calibre14">UIView</code>有三个比较重要的布局属性：<code class="pcalibre4 pcalibre3 calibre14">frame</code>，<code class="pcalibre4 pcalibre3 calibre14">bounds</code>和<code class="pcalibre4 pcalibre3 calibre14">center</code>，<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>对应地叫做<code class="pcalibre4 pcalibre3 calibre14">frame</code>，<code class="pcalibre4 pcalibre3 calibre14">bounds</code>和<code class="pcalibre4 pcalibre3 calibre14">position</code>。为了能清楚区分，图层用了“position”，视图用了“center”，但是他们都代表同样的值。</p>
+<p class="calibre7">    <code class="pcalibre4 pcalibre3 calibre14">frame</code>代表了图层的外部坐标（也就是在父图层上占据的空间），<code class="pcalibre4 pcalibre3 calibre14">bounds</code>是内部坐标（{0, 0}通常是图层的左上角），<code class="pcalibre4 pcalibre3 calibre14">center</code>和<code class="pcalibre4 pcalibre3 calibre14">position</code>都代表了相对于父图层<code class="pcalibre4 pcalibre3 calibre14">anchorPoint</code>所在的位置。<code class="pcalibre4 pcalibre3 calibre14">anchorPoint</code>的属性将会在后续介绍到，现在把它想成图层的中心点就好了。图3.1显示了这些属性是如何相互依赖的。</p>
+<p class="calibre7"><img title="图3.1" alt="图3.1" src="3.1.jpeg" class="calibre13"/></p>
+<p class="calibre7">图3.1 <code class="pcalibre4 pcalibre3 calibre14">UIView</code>和<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>的坐标系</p>
+<p class="calibre7">    视图的<code class="pcalibre4 pcalibre3 calibre14">frame</code>，<code class="pcalibre4 pcalibre3 calibre14">bounds</code>和<code class="pcalibre4 pcalibre3 calibre14">center</code>属性仅仅是<em class="calibre11">存取方法</em>，当操纵视图的<code class="pcalibre4 pcalibre3 calibre14">frame</code>，实际上是在改变位于视图下方<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>的<code class="pcalibre4 pcalibre3 calibre14">frame</code>，不能够独立于图层之外改变视图的<code class="pcalibre4 pcalibre3 calibre14">frame</code>。</p>
+<p class="calibre7">    对于视图或者图层来说，<code class="pcalibre4 pcalibre3 calibre14">frame</code>并不是一个非常清晰的属性，它其实是一个虚拟属性，是根据<code class="pcalibre4 pcalibre3 calibre14">bounds</code>，<code class="pcalibre4 pcalibre3 calibre14">position</code>和<code class="pcalibre4 pcalibre3 calibre14">transform</code>计算而来，所以当其中任何一个值发生改变，frame都会变化。相反，改变frame的值同样会影响到他们当中的值</p>
+<p class="calibre7">    记住当对图层做变换的时候，比如旋转或者缩放，<code class="pcalibre4 pcalibre3 calibre14">frame</code>实际上代表了覆盖在图层旋转之后的整个轴对齐的矩形区域，也就是说<code class="pcalibre4 pcalibre3 calibre14">frame</code>的宽高可能和<code class="pcalibre4 pcalibre3 calibre14">bounds</code>的宽高不再一致了（图3.2）</p>
+<p class="calibre7"><img title="图3.2" alt="图3.2" src="3.2.jpeg" class="calibre13"/></p>
+<p class="calibre7">图3.2 旋转一个视图或者图层之后的<code class="pcalibre4 pcalibre3 calibre14">frame</code>属性</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

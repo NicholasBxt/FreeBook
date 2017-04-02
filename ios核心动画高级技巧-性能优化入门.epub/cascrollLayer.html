@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>CAScrollLayer | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_37">CAScrollLayer</h1>
+        
+            <div class="section" id="section-">
+            
+                <h2 id="cascrolllayer" class="calibre12">CAScrollLayer</h2>
+<p class="calibre7">对于一个未转换的图层，它的<code class="pcalibre4 pcalibre3 calibre14">bounds</code>和它的<code class="pcalibre4 pcalibre3 calibre14">frame</code>是一样的，<code class="pcalibre4 pcalibre3 calibre14">frame</code>属性是由<code class="pcalibre4 pcalibre3 calibre14">bounds</code>属性自动计算而出的，所以更改任意一个值都会更新其他值。</p>
+<p class="calibre7">但是如果你只想显示一个大图层里面的一小部分呢。比如说，你可能有一个很大的图片，你希望用户能够随意滑动，或者是一个数据或文本的长列表。在一个典型的iOS应用中，你可能会用到<code class="pcalibre4 pcalibre3 calibre14">UITableView</code>或是<code class="pcalibre4 pcalibre3 calibre14">UIScrollView</code>，但是对于独立的图层来说，什么会等价于刚刚提到的<code class="pcalibre4 pcalibre3 calibre14">UITableView</code>和<code class="pcalibre4 pcalibre3 calibre14">UIScrollView</code>呢？</p>
+<p class="calibre7">在第二章中，我们探索了图层的<code class="pcalibre4 pcalibre3 calibre14">contentsRect</code>属性的用法，它的确是能够解决在图层中小地方显示大图片的解决方法。但是如果你的图层包含子图层那它就不是一个非常好的解决方案，因为，这样做的话每次你想『滑动』可视区域的时候，你就需要手工重新计算并更新所有的子图层位置。</p>
+<p class="calibre7">这个时候就需要<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>了。<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>有一个<code class="pcalibre4 pcalibre3 calibre14">-scrollToPoint:</code>方法，它自动适应<code class="pcalibre4 pcalibre3 calibre14">bounds</code>的原点以便图层内容出现在滑动的地方。注意，这就是它做的所有事情。前面提到过，Core Animation并不处理用户输入，所以<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>并不负责将触摸事件转换为滑动事件，既不渲染滚动条，也不实现任何iOS指定行为例如滑动反弹（当视图滑动超多了它的边界的将会反弹回正确的地方）。</p>
+<p class="calibre7">让我们来用<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>来常见一个基本的<code class="pcalibre4 pcalibre3 calibre14">UIScrollView</code>替代品。我们将会用<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>作为视图的宿主图层，并创建一个自定义的<code class="pcalibre4 pcalibre3 calibre14">UIView</code>，然后用<code class="pcalibre4 pcalibre3 calibre14">UIPanGestureRecognizer</code>实现触摸事件响应。这段代码见清单6.10. 图6.11是运行效果：<code class="pcalibre4 pcalibre3 calibre14">ScrollView</code>显示了一个大于它的<code class="pcalibre4 pcalibre3 calibre14">frame</code>的<code class="pcalibre4 pcalibre3 calibre14">UIImageView</code>。</p>
+<p class="calibre7">清单6.10 用<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>实现滑动视图</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">#import "ScrollView.h"
+#import <quartzcore quartzcore.h="" class="calibre18"> @implementation ScrollView
++ (Class)layerClass
+{
+    return [CAScrollLayer class];
+}
+
+- (void)setUp
+{
+    //enable clipping
+    self.layer.masksToBounds = YES;
+
+    //attach pan gesture recognizer
+    UIPanGestureRecognizer *recognizer = nil;
+    recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self addGestureRecognizer:recognizer];
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    //this is called when view is created in code
+    if ((self = [super initWithFrame:frame])) {
+        [self setUp];
+    }
+    return self;
+}
+
+- (void)awakeFromNib {
+    //this is called when view is created from a nib
+    [self setUp];
+}
+
+- (void)pan:(UIPanGestureRecognizer *)recognizer
+{
+    //get the offset by subtracting the pan gesture
+    //translation from the current bounds origin
+    CGPoint offset = self.bounds.origin;
+    offset.x -= [recognizer translationInView:self].x;
+    offset.y -= [recognizer translationInView:self].y;
+
+    //scroll the layer
+    [(CAScrollLayer *)self.layer scrollToPoint:offset];
+
+    //reset the pan gesture translation
+    [recognizer setTranslation:CGPointZero inView:self];
+}
+@end
+</quartzcore></code></pre>
+<p class="calibre7">图6.11 用<code class="pcalibre4 pcalibre3 calibre14">UIScrollView</code>创建一个凑合的滑动视图</p>
+<p class="calibre7">不同于<code class="pcalibre4 pcalibre3 calibre14">UIScrollView</code>，我们定制的滑动视图类并没有实现任何形式的边界检查（bounds checking）。图层内容极有可能滑出视图的边界并无限滑下去。<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>并没有等同于<code class="pcalibre4 pcalibre3 calibre14">UIScrollView</code>中<code class="pcalibre4 pcalibre3 calibre14">contentSize</code>的属性，所以当<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>滑动的时候完全没有一个全局的可滑动区域的概念，也无法自适应它的边界原点至你指定的值。它之所以不能自适应边界大小是因为它不需要，内容完全可以超过边界。</p>
+<p class="calibre7">那你一定会奇怪用<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>的意义到底何在，因为你可以简单地用一个普通的<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>然后手动适应边界原点啊。真相其实并不复杂，<code class="pcalibre4 pcalibre3 calibre14">UIScrollView</code>并没有用<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>，事实上，就是简单的通过直接操作图层边界来实现滑动。</p>
+<p class="calibre7"><code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>有一个潜在的有用特性。如果你查看<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>的头文件，你就会注意到有一个扩展分类实现了一些方法和属性：</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">- (void)scrollPoint:(CGPoint)p;
+- (void)scrollRectToVisible:(CGRect)r;
+@property(readonly) CGRect visibleRect;
+</code></pre>
+<p class="calibre7">看到这些方法和属性名，你也许会以为这些方法给每个<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>实例增加了滑动功能。但是事实上他们只是放置在<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>中的图层的实用方法。<code class="pcalibre4 pcalibre3 calibre14">scrollPoint:</code>方法从图层树中查找并找到第一个可用的<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>，然后滑动它使得指定点成为可视的。<code class="pcalibre4 pcalibre3 calibre14">scrollRectToVisible:</code>方法实现了同样的事情只不过是作用在一个矩形上的。<code class="pcalibre4 pcalibre3 calibre14">visibleRect</code>属性决定图层（如果存在的话）的哪部分是当前的可视区域。如果你自己实现这些方法就会相对容易明白一点，但是<code class="pcalibre4 pcalibre3 calibre14">CAScrollLayer</code>帮你省了这些麻烦，所以当涉及到实现图层滑动的时候就可以用上了。</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

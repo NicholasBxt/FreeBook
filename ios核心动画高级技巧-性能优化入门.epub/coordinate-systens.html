@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>坐标系 | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_14">坐标系</h1>
+        
+            <div class="section" id="section-">
+            
+                <h1 id="坐标系" class="calibre6">坐标系</h1>
+<p class="calibre7">和视图一样，图层在图层树当中也是相对于父图层按层级关系放置，一个图层的<code class="pcalibre4 pcalibre3 calibre14">position</code>依赖于它父图层的<code class="pcalibre4 pcalibre3 calibre14">bounds</code>，如果父图层发生了移动，它的所有子图层也会跟着移动。</p>
+<p class="calibre7">这样对于放置图层会更加方便，因为你可以通过移动根图层来将它的子图层作为一个整体来移动，但是有时候你需要知道一个图层的<em class="calibre11">绝对</em>位置，或者是相对于另一个图层的位置，而不是它当前父图层的位置。</p>
+<p class="calibre7"><code class="pcalibre4 pcalibre3 calibre14">CALayer</code>给不同坐标系之间的图层转换提供了一些工具类方法：</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">- (CGPoint)convertPoint:(CGPoint)point fromLayer:(CALayer *)layer;
+- (CGPoint)convertPoint:(CGPoint)point toLayer:(CALayer *)layer;
+- (CGRect)convertRect:(CGRect)rect fromLayer:(CALayer *)layer;
+- (CGRect)convertRect:(CGRect)rect toLayer:(CALayer *)layer;
+</code></pre><p class="calibre7">这些方法可以把定义在一个图层坐标系下的点或者矩形转换成另一个图层坐标系下的点或者矩形.</p>
+<h2 id="翻转的几何结构" class="calibre12">翻转的几何结构</h2>
+<p class="calibre7">    常规说来，在iOS上，一个图层的<code class="pcalibre4 pcalibre3 calibre14">position</code>位于父图层的左上角，但是在Mac OS上，通常是位于左下角。Core Animation可以通过<code class="pcalibre4 pcalibre3 calibre14">geometryFlipped</code>属性来适配这两种情况，它决定了一个图层的坐标是否相对于父图层垂直翻转，是一个<code class="pcalibre4 pcalibre3 calibre14">BOOL</code>类型。在iOS上通过设置它为<code class="pcalibre4 pcalibre3 calibre14">YES</code>意味着它的子图层将会被垂直翻转，也就是将会沿着底部排版而不是通常的顶部（它的所有子图层也同理，除非把它们的<code class="pcalibre4 pcalibre3 calibre14">geometryFlipped</code>属性也设为<code class="pcalibre4 pcalibre3 calibre14">YES</code>）。</p>
+<h2 id="z坐标轴" class="calibre12">Z坐标轴</h2>
+<p class="calibre7">    和<code class="pcalibre4 pcalibre3 calibre14">UIView</code>严格的二维坐标系不同，<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>存在于一个三维空间当中。除了我们已经讨论过的<code class="pcalibre4 pcalibre3 calibre14">position</code>和<code class="pcalibre4 pcalibre3 calibre14">anchorPoint</code>属性之外，<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>还有另外两个属性，<code class="pcalibre4 pcalibre3 calibre14">zPosition</code>和<code class="pcalibre4 pcalibre3 calibre14">anchorPointZ</code>，二者都是在Z轴上描述图层位置的浮点类型。</p>
+<p class="calibre7">    注意这里并没有更<em class="calibre11">深</em>的属性来描述由宽和高做成的<code class="pcalibre4 pcalibre3 calibre14">bounds</code>了，图层是一个完全扁平的对象，你可以把它们想象成类似于一页二维的坚硬的纸片，用胶水粘成一个空洞，就像三维结构的折纸一样。</p>
+<p class="calibre7">    <code class="pcalibre4 pcalibre3 calibre14">zPosition</code>属性在大多数情况下其实并不常用。在第五章，我们将会涉及<code class="pcalibre4 pcalibre3 calibre14">CATransform3D</code>，你会知道如何在三维空间移动和旋转图层，除了做变换之外，<code class="pcalibre4 pcalibre3 calibre14">zPosition</code>最实用的功能就是改变图层的<em class="calibre11">显示顺序</em>了。</p>
+<p class="calibre7">    通常，图层是根据它们子图层的<code class="pcalibre4 pcalibre3 calibre14">sublayers</code>出现的顺序来类绘制的，这就是所谓的<em class="calibre11">画家的算法</em>--就像一个画家在墙上作画--后被绘制上的图层将会遮盖住之前的图层，但是通过增加图层的<code class="pcalibre4 pcalibre3 calibre14">zPosition</code>，就可以把图层向相机方向<em class="calibre11">前置</em>，于是它就在所有其他图层的<em class="calibre11">前面</em>了（或者至少是小于它的<code class="pcalibre4 pcalibre3 calibre14">zPosition</code>值的图层的前面）。</p>
+<p class="calibre7">    这里所谓的“相机”实际上是相对于用户是视角，这里和iPhone背后的内置相机没任何关系。</p>
+<p class="calibre7">图3.8显示了在Interface Builder内的一对视图，正如你所见，首先出现在视图层级绿色的视图被绘制在红色视图的后面。</p>
+<p class="calibre7"><img title="图3.8" alt="图3.8" src="3.8.jpeg" class="calibre13"/></p>
+<p class="calibre7">图3.8 在视图层级中绿色视图被绘制在红色视图的后面</p>
+<p class="calibre7">    我们希望在真实的应用中也能显示出绘图的顺序，同样地，如果我们提高绿色视图的<code class="pcalibre4 pcalibre3 calibre14">zPosition</code>（清单3.3），我们会发现顺序就反了（图3.9）。其实并不需要增加太多，视图都非常地薄，所以给<code class="pcalibre4 pcalibre3 calibre14">zPosition</code>提高一个像素就可以让绿色视图前置，当然0.1或者0.0001也能够做到，但是最好不要这样，因为浮点类型四舍五入的计算可能会造成一些不便的麻烦。</p>
+<p class="calibre7">清单3.3</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">@interface ViewController ()
+
+@property (nonatomic, weak) IBOutlet UIView *greenView;
+@property (nonatomic, weak) IBOutlet UIView *redView;
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    ￼
+    //move the green view zPosition nearer to the camera
+    self.greenView.layer.zPosition = 1.0f;
+}
+@end
+</code></pre>
+<p class="calibre7"><img title="图3.9" alt="图3.9" src="3.9.jpeg" class="calibre13"/></p>
+<p class="calibre7">图3.9 绿色视图被绘制在红色视图的前面</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

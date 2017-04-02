@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>混合和过度绘制 | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_86">混合和过度绘制</h1>
+        
+            <div class="section" id="section-">
+            
+                <h2 id="混合和过度绘制" class="calibre12">混合和过度绘制</h2>
+<p class="calibre7">    在第12章有提到，GPU每一帧可以绘制的像素有一个最大限制（就是所谓的fill rate），这个情况下可以轻易地绘制整个屏幕的所有像素。但是如果由于重叠图层的关系需要不停地重绘同一区域的话，掉帧就可能发生了。</p>
+<p class="calibre7">    GPU会放弃绘制那些完全被其他图层遮挡的像素，但是要计算出一个图层是否被遮挡也是相当复杂并且会消耗处理器资源。同样，合并不同图层的透明重叠像素（即混合）消耗的资源也是相当客观的。所以为了加速处理进程，不到必须时刻不要使用透明图层。任何情况下，你应该这样做：</p>
+<ul class="calibre16">
+<li class="calibre17">给视图的<code class="pcalibre4 pcalibre3 calibre14">backgroundColor</code>属性设置一个固定的，不透明的颜色</li>
+<li class="calibre17">设置<code class="pcalibre4 pcalibre3 calibre14">opaque</code>属性为YES</li>
+</ul>
+<p class="calibre7">    这样做减少了混合行为（因为编译器知道在图层之后的东西都不会对最终的像素颜色产生影响）并且计算得到了加速，避免了过度绘制行为因为Core Animation可以舍弃所有被完全遮盖住的图层，而不用每个像素都去计算一遍。</p>
+<p class="calibre7">    如果用到了图像，尽量避免透明除非非常必要。如果图像要显示在一个固定的背景颜色或是固定的背景图之前，你没必要相对前景移动，你只需要预填充背景图片就可以避免运行时混色了。</p>
+<p class="calibre7">    如果是文本的话，一个白色背景的<code class="pcalibre4 pcalibre3 calibre14">UILabel</code>（或者其他颜色）会比透明背景要更高效。</p>
+<p class="calibre7">    最后，明智地使用<code class="pcalibre4 pcalibre3 calibre14">shouldRasterize</code>属性，可以将一个固定的图层体系折叠成单张图片，这样就不需要每一帧重新合成了，也就不会有因为子图层之间的混合和过度绘制的性能问题了。</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>

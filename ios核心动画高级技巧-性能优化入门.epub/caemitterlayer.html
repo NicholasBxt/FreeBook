@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+  <head>
+    <title>CAEmitterLayer | ios核心动画高级技巧</title>
+    <meta name="description" content=""/>
+    <meta name="generator" content="GitBook 2.6.7"/>
+    <meta name="author" content="钟声"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="dir">
+        
+        
+<div class="page">
+    
+        <h1 class="book-chapter" id="calibre_toc_39">CAEmitterLayer</h1>
+        
+            <div class="section" id="section-">
+            
+                <h1 id="caemitterlayer" class="calibre6">CAEmitterLayer</h1>
+<p class="calibre7">在iOS 5中，苹果引入了一个新的<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>子类叫做<code class="pcalibre4 pcalibre3 calibre14">CAEmitterLayer</code>。<code class="pcalibre4 pcalibre3 calibre14">CAEmitterLayer</code>是一个高性能的粒子引擎，被用来创建实时例子动画如：烟雾，火，雨等等这些效果。</p>
+<p class="calibre7"><code class="pcalibre4 pcalibre3 calibre14">CAEmitterLayer</code>看上去像是许多<code class="pcalibre4 pcalibre3 calibre14">CAEmitterCell</code>的容器，这些<code class="pcalibre4 pcalibre3 calibre14">CAEmitierCell</code>定义了一个例子效果。你将会为不同的例子效果定义一个或多个<code class="pcalibre4 pcalibre3 calibre14">CAEmitterCell</code>作为模版，同时<code class="pcalibre4 pcalibre3 calibre14">CAEmitterLayer</code>负责基于这些模版实例化一个粒子流。一个<code class="pcalibre4 pcalibre3 calibre14">CAEmitterCell</code>类似于一个<code class="pcalibre4 pcalibre3 calibre14">CALayer</code>：它有一个<code class="pcalibre4 pcalibre3 calibre14">contents</code>属性可以定义为一个<code class="pcalibre4 pcalibre3 calibre14">CGImage</code>，另外还有一些可设置属性控制着表现和行为。我们不会对这些属性逐一进行详细的描述，你们可以在<code class="pcalibre4 pcalibre3 calibre14">CAEmitterCell</code>类的头文件中找到。</p>
+<p class="calibre7">我们来举个例子。我们将利用在一圆中发射不同速度和透明度的粒子创建一个火爆炸的效果。清单6.13包含了生成爆炸的代码。图6.13是运行结果</p>
+<p class="calibre7">清单6.13 用<code class="pcalibre4 pcalibre3 calibre14">CAEmitterLayer</code>创建爆炸效果</p>
+<pre class="calibre19"><code class="lang-objective-c pcalibre6 pcalibre5">#import "ViewController.h"
+#import <quartzcore quartzcore.h="" class="calibre18">
+
+@interface ViewController ()
+
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+
+@end
+
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    ￼
+    //create particle emitter layer
+    CAEmitterLayer *emitter = [CAEmitterLayer layer];
+    emitter.frame = self.containerView.bounds;
+    [self.containerView.layer addSublayer:emitter];
+
+    //configure emitter
+    emitter.renderMode = kCAEmitterLayerAdditive;
+    emitter.emitterPosition = CGPointMake(emitter.frame.size.width / 2.0, emitter.frame.size.height / 2.0);
+
+    //create a particle template
+    CAEmitterCell *cell = [[CAEmitterCell alloc] init];
+    cell.contents = (__bridge id)[UIImage imageNamed:@"Spark.png"].CGImage;
+    cell.birthRate = 150;
+    cell.lifetime = 5.0;
+    cell.color = [UIColor colorWithRed:1 green:0.5 blue:0.1 alpha:1.0].CGColor;
+    cell.alphaSpeed = -0.4;
+    cell.velocity = 50;
+    cell.velocityRange = 50;
+    cell.emissionRange = M_PI * 2.0;
+
+    //add particle template to emitter
+    emitter.emitterCells = @[cell];
+}
+@end
+</quartzcore></code></pre>
+<p class="calibre7">图6.13 火焰爆炸效果</p>
+<p class="calibre7"><code class="pcalibre4 pcalibre3 calibre14">CAEMitterCell</code>的属性基本上可以分为三种：</p>
+<ul class="calibre16">
+<li class="calibre17">这种粒子的某一属性的初始值。比如，<code class="pcalibre4 pcalibre3 calibre14">color</code>属性指定了一个可以混合图片内容颜色的混合色。在示例中，我们将它设置为桔色。</li>
+<li class="calibre17">例子某一属性的变化范围。比如<code class="pcalibre4 pcalibre3 calibre14">emissionRange</code>属性的值是2π，这意味着例子可以从360度任意位置反射出来。如果指定一个小一些的值，就可以创造出一个圆锥形</li>
+<li class="calibre17">指定值在时间线上的变化。比如，在示例中，我们将<code class="pcalibre4 pcalibre3 calibre14">alphaSpeed</code>设置为-0.4，就是说例子的透明度每过一秒就是减少0.4，这样就有发射出去之后逐渐小时的效果。</li>
+</ul>
+<p class="calibre7"><code class="pcalibre4 pcalibre3 calibre14">CAEmitterLayer</code>的属性它自己控制着整个例子系统的位置和形状。一些属性比如<code class="pcalibre4 pcalibre3 calibre14">birthRate</code>，<code class="pcalibre4 pcalibre3 calibre14">lifetime</code>和<code class="pcalibre4 pcalibre3 calibre14">celocity</code>，这些属性在<code class="pcalibre4 pcalibre3 calibre14">CAEmitterCell</code>中也有。这些属性会以相乘的方式作用在一起，这样你就可以用一个值来加速或者扩大整个例子系统。其他值得提到的属性有以下这些：</p>
+<ul class="calibre16">
+<li class="calibre17"><code class="pcalibre4 pcalibre3 calibre14">preservesDepth</code>，是否将3D例子系统平面化到一个图层（默认值）或者可以在3D空间中混合其他的图层</li>
+<li class="calibre17"><code class="pcalibre4 pcalibre3 calibre14">renderMode</code>，控制着在视觉上粒子图片是如何混合的。你可能已经注意到了示例中我们把它设置为<code class="pcalibre4 pcalibre3 calibre14">kCAEmitterLayerAdditive</code>，它实现了这样一个效果：合并例子重叠部分的亮度使得看上去更亮。如果我们把它设置为默认的<code class="pcalibre4 pcalibre3 calibre14">kCAEmitterLayerUnordered</code>，效果就没那么好看了（见图6.14）.</li>
+</ul>
+<p class="calibre7"><img alt="图6.14" src="6.14.png" class="calibre21"/></p>
+<p class="calibre7">图6.14 禁止混色之后的火焰粒子</p>
+
+            
+            </div>
+        
+    
+</div>
+
+        
+        
+    
+    
+
+</body></html>
